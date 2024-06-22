@@ -1,0 +1,7 @@
+.error{
+    background-image: url('https://images.unsplash.com/photo-1594322436404-5a0526db4d13?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFnZSUyMG5vdCUyMGZvdW5kfGVufDB8fDB8fHww');
+    min-width: 100dvw;
+    min-height: 90dvh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,18 @@
+<div class="container-fluid p-3 w3-card-4 mt-4 d-flex w-90 mb-4">
+    <div class="left" >
+        <img [src]="product.image" alt="">
+    </div>
+    <div class="right ">
+        <h1 class="">{{ product.title}} </h1>
+        <h4 class="w3-leftbar w3-border-blue w3-hover-border-aqua">{{ product.category}} </h4>
+        <p>{{ product.description}} </p>
+
+        <h2 class="w3-leftbar w3-border-blue w3-hover-border-aqua">Price: {{ product.price }} dollars</h2>
+
+        <div class="action">
+            <a [routerLink]="['/cart']" class="btn btn-success mx-2">Add to cart</a>
+            <a routerLink="/" class="btn btn-info mx-2">Go back</a>
+
+        </div>
+    </div>
+</div>

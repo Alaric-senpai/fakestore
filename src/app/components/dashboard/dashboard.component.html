@@ -1,0 +1,55 @@
+<!-- src/app/dashboard/dashboard.component.html -->
+<div class="container-fluid mt-4" *ngIf="products.length > 0">
+  <div class="row">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12" *ngFor="let product of paginatedProducts">
+      <div class="card w-100 mb-4 w3-card-4 w3-center p-2 w3-display-container">
+        <img [src]="product.image" class="card-img-top" alt="Product Image">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.title }}</h5>
+          <p class="card-text">Price: ${{ product.price }}</p>
+          <div class="rating">
+            <ng-container *ngFor="let star of getStars(product.rating.rate)">
+              <i class="fa" [ngClass]="{
+                'fa-star': star === 1,
+                'fa-star-half-alt': star === 0.5,
+                'fa-star-o': star === 0
+              }"></i>
+            </ng-container>
+          </div>
+          <a [routerLink]="['/products', product.id]" class="w3-button w3-blue w3-display-bottomleft w3-margin">Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-4" *ngIf="products.length === 0 && !error">
+  Loading products...
+</div>
+<div class="container mt-4" *ngIf="error">
+  Error: {{ error }}
+</div>
+
+<div class=" w3-block ">
+  <nav aria-label="Page navigation  " class="w3-block  w3-display-container p-2 mb-5 mt-3">
+    
+    <ul class="pagination w3-center w3-display-middle">
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Previous" (click)="previouspage()">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li *ngFor="let page of [].constructor(pagination.totalpages); let i = index" class="page-item">
+
+        <a class="page-link" href="#" (click)="pagechange(i + 1)" [ngClass]="{'active': pagination.page === (i + 1)}">
+          {{ i + 1 }}
+        </a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="#" aria-label="Next" (click)="nextpage()">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

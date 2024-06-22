@@ -1,0 +1,18 @@
+<div class="container p-3">
+    <div *ngIf="categories.length > 0">
+        <h3 class="h2 ">
+        categories available
+        </h3>
+        <ul class="w3-ul ">
+            <li *ngFor="let category of categories" class="w3-leftbar w3-border-blue w3-hover-border-aqua">
+                <a [routerLink]="['/catdetails', category]">{{ category }} </a> <i class='bx bx-right bx-fade-right-hover'></i>
+            </li>
+          </ul>
+    </div>
+    <div *ngIf="categories.length === 0">
+        loading
+    </div>
+    <div *ngIf="error">
+        {{ error | json }}
+    </div>
+</div>

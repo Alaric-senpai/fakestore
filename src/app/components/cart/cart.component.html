@@ -1,0 +1,32 @@
+<!-- src/app/components/cart/cart.component.html -->
+
+<div *ngIf="error" class="alert alert-danger">
+  Error: {{ error }}
+</div>
+
+<div *ngIf="!error && carts.length === 0">
+  Loading carts...
+</div>
+
+<div class="row mt-4 container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 " *ngFor="let cart of carts">
+            <div class="card w-100 w3-card-4" >
+              <!-- <img src="..." class="card-img-top" alt="..."> -->
+              <div class="card-body">
+                <h5 class="card-title">Cart id: {{ cart.id}} </h5>
+                <p class="card-text">Userid: {{ cart.userId}} </p>
+                <p class="card-text">Creation date: {{ cart.date}} </p>
+                <p class="card-text">cart products </p>
+                <ul>
+                    <li *ngFor="let product of cart.products">
+                      Product id: {{product.productid}}, Quantity: {{ product.quantity}}
+                    </li>
+                </ul>
+
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

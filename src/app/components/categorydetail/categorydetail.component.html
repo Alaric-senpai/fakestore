@@ -1,0 +1,27 @@
+<div class="mt-5 w3-container">
+      <div *ngIf="products.length >0">
+          <div>
+              <div class="row">
+                  <div class="col-xs-12 col-lg-4 col-md-6 mb-3" *ngFor="let item of products">
+                      <div class="card w3-card-4 w3-display-container" >
+                        <img [src]="item.image" class="card-img-top" alt="product image">
+                        <div class="card-body">
+                          <h5 class="card-title pb-3">{{ item.title}} </h5>
+                          <a [routerLink]="['/products', item.id]" class="btn btn-primary w3-display-bottomright w3-margin">details &raquo;</a>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+      <div class="" *ngIf="products.length == 0 && !error">
+        products loading
+      </div>
+      <div *ngIf="error">
+        {{ error }}
+      </div>
+      <div class="mt-4 mb-4 w3-block w3-center">
+        <a routerLink="/categories" class="w3-button w3-pale-blue ">Go back</a>
+      </div>
+</div>
